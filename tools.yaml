@@ -1,0 +1,21 @@
+sources:
+  mysql:
+    type: mysql
+    host: ${MYSQL_HOST}
+    port: ${MYSQL_PORT}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    database: betty
+
+tools:
+  get-product-price:
+    description: Query the bird store database to get the price of a product by name
+    source: mysql
+    query: |
+      SELECT product_name, price 
+      FROM products 
+      WHERE LOWER(product_name) LIKE LOWER(CONCAT('%', ?, '%'))
+      LIMIT 1
+    parameters:
+      - name: product_name
+        description: The name of the product to look up (e.g., "Bird Seed Mix")

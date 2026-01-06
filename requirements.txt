@@ -1,0 +1,10 @@
+# google-adk>=1.13.0
+# google-cloud-discoveryengine>=0.13.11
+# toolbox-core>=0.5.0
+google-adk
+# google-cloud-discoveryengine
+requests
+Flask
+PyYAML
+mysql-connector-python
+toolbox-core
